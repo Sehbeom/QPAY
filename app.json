@@ -1,0 +1,12 @@
+{
+  "name": "Qpay",
+  "displayName": "Qpay",
+  "expo": {
+    "name": "Qpay",
+    "slug": "Qpay",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
