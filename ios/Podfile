@@ -5,6 +5,11 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '11.0'
 
 target 'Qpay' do
+  # Permissions (퍼미션 요청을 위한 코드 추가)
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+
+  # Pods for ReactNativeBarcode
   use_unimodules!
   config = use_native_modules!
 
