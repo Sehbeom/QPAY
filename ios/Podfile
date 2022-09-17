@@ -7,7 +7,7 @@ platform :ios, '11.0'
 target 'Qpay' do
   # Permissions (퍼미션 요청을 위한 코드 추가)
   permissions_path = '../node_modules/react-native-permissions/ios'
-  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera/Permission-Camera.podspec"
 
   # Pods for ReactNativeBarcode
   use_unimodules!
@@ -15,10 +15,10 @@ target 'Qpay' do
 
   use_react_native!(:path => config["reactNativePath"])
 
-  if !ENV['CI']
-    use_flipper!({ 'Flipper' => '0.80.0' })
-    post_install do |installer|
-      flipper_post_install(installer)
-    end
-  end
+  # if !ENV['CI']
+  #   use_flipper!({ 'Flipper-Folly' => '2.3.0' })
+  #   post_install do |installer|
+  #     flipper_post_install(installer)
+  #   end
+  # end
 end

@@ -1,35 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView, KeyboardAvoidingView, TextInput } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TouchableOpacity,
+  ScrollView,
+  KeyboardAvoidingView,
+  TextInput,
+} from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import MyInfo from '../default/myinfo';
-import MyAcc from '../default/myacc';
-import MngPage from './accmanage/mngpage';
-import AddAcc from './accmanage/addacc';
-import AccItem from './accmanage/accitem';
-import AccHistory from './accmanage/acchistory';
+import MyInfo from "../default/myinfo";
+import MyAcc from "../default/myacc";
+import MngPage from "./accmanage/mngpage";
+import AddAcc from "./accmanage/addacc";
+import AccItem from "./accmanage/accitem";
+import AccHistory from "./accmanage/acchistory";
 
-import { Foundation } from '@expo/vector-icons';
+import { Foundation } from "@expo/vector-icons";
 
-const wwidth = Dimensions.get('window').width;
-const wheight = Dimensions.get('window').height;
+const wwidth = Dimensions.get("window").width;
+const wheight = Dimensions.get("window").height;
 
 const MPRootStack = createStackNavigator();
 
 export default class Mypage extends React.Component {
-
   MyPageScreen = ({ navigation }) => {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text>헤더자리</Text>
-        </View>
+        <View style={styles.header}>{/* <Text>헤더자리</Text> */}</View>
         <View style={styles.body}>
           <MyInfo
             username="이땡땡"
             userbirth="90000"
-            userphone="010-****-9999" />
+            userphone="010-****-9999"
+          />
           <StatusBar style="auto" />
           <View style={styles.acccontainer}>
             <View style={styles.accnmanage}>
@@ -38,9 +45,7 @@ export default class Mypage extends React.Component {
                   <Text style={styles.accheadertext}>내 계좌</Text>
                 </View>
                 <View>
-                  <MyAcc
-                    bankname="우리은행"
-                    accnumber="1002-000-000000" />
+                  <MyAcc bankname="우리은행" accnumber="1002-000-000000" />
                   {/* <MyAcc
                     bankname="땡땡은행"
                     accnumber="0000-000-000000" /> */}
@@ -50,17 +55,17 @@ export default class Mypage extends React.Component {
                 <TouchableOpacity
                   activeOpacity={0.6}
                   style={styles.accmanagecontainer}
-                  onPress={() => navigation.navigate('MngPage')}>
+                  onPress={() => navigation.navigate("MngPage")}
+                >
                   <Text style={styles.accmanagetext}>계좌 관리</Text>
                 </TouchableOpacity>
               </View>
             </View>
-
           </View>
         </View>
       </View>
-    )
-  }
+    );
+  };
 
   ////방법2===============================
   // MngPageScreen = ({ navigation }) => {
@@ -94,10 +99,26 @@ export default class Mypage extends React.Component {
         {/* <MPRootStack.Screen options={{ headerShown: false }} name="MyPage" component={this.MyPageScreen} />
         <MPRootStack.Screen options={{ title: "계좌 관리" }} name="AccManage" component={this.MngPageScreen} />
         <MPRootStack.Screen options={{ title: "계좌 추가" }} name="AddAcc" component={AddAcc} /> */}
-        <MPRootStack.Screen options={{ headerShown: false }} name="MyPage" component={this.MyPageScreen} />
-        <MPRootStack.Screen options={{ title: "계좌 관리" }} name="MngPage" component={MngPage} />
-        <MPRootStack.Screen options={{ title: "계좌 추가" }} name="AddAcc" component={AddAcc} />
-        <MPRootStack.Screen options={{ title: "계좌 내역" }} name="AccHistory" component={AccHistory} />
+        <MPRootStack.Screen
+          options={{ headerShown: false }}
+          name="MyPage"
+          component={this.MyPageScreen}
+        />
+        <MPRootStack.Screen
+          options={{ title: "계좌 관리" }}
+          name="MngPage"
+          component={MngPage}
+        />
+        <MPRootStack.Screen
+          options={{ title: "계좌 추가" }}
+          name="AddAcc"
+          component={AddAcc}
+        />
+        <MPRootStack.Screen
+          options={{ title: "계좌 내역" }}
+          name="AccHistory"
+          component={AccHistory}
+        />
       </MPRootStack.Navigator>
     );
   }
@@ -106,13 +127,13 @@ export default class Mypage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    justifyContent: "center",
   },
   header: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   body: {
     flex: 3,
@@ -126,36 +147,36 @@ const styles = StyleSheet.create({
     height: wheight * 0.2,
     width: wwidth,
 
-    marginTop:wheight*0.02,
+    marginTop: wheight * 0.02,
   },
   accbox: {
     marginLeft: wwidth * 0.07,
   },
   accheader: {
-    justifyContent: 'center',
+    justifyContent: "center",
 
     marginBottom: wheight * 0.01,
   },
   managebox: {
     width: wwidth,
-    alignItems: 'center',
+    alignItems: "center",
   },
 
   accheadertext: {
     fontSize: wwidth * 0.05,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 
   accmanagecontainer: {
-    backgroundColor: '#7cb1f7',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#7cb1f7",
+    alignItems: "center",
+    justifyContent: "center",
     height: wheight * 0.05,
     width: wwidth * 0.9,
     borderRadius: 10,
     marginTop: wheight * 0.03,
 
-    shadowColor: '#000000',
+    shadowColor: "#000000",
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
     shadowOffset: {
@@ -165,7 +186,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   accmanagetext: {
-    color: 'white',
+    color: "white",
     fontSize: wwidth * 0.04,
   },
 
@@ -197,5 +218,4 @@ const styles = StyleSheet.create({
   //   width: wwidth * 0.9,
   //   borderRadius: 15,
   // }
-
 });
